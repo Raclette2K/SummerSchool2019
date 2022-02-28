@@ -1,0 +1,320 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[     11494,        312]
+NotebookOptionsPosition[      9315,        266]
+NotebookOutlinePosition[      9649,        281]
+CellTagsIndexPosition[      9606,        278]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+  "Replace", " ", "the", " ", "freaking", " ", "table", " ", "by", " ", "a", 
+   " ", 
+   RowBox[{"range", " ", "!"}]}], " ", "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.7705862351513844`*^9, 
+  3.77058624046378*^9}},ExpressionUUID->"ed2919b4-b632-408f-8f05-\
+dfd24057c240"],
+
+Cell[CellGroupData[{
+
+Cell["Polynomial Conversion", "Section",
+ CellChangeTimes->{{3.770563964225697*^9, 
+  3.77056397781768*^9}},ExpressionUUID->"421679c5-99e0-4a9b-becb-\
+fd983e9a678d"],
+
+Cell[CellGroupData[{
+
+Cell["Bit list to Polynomial", "Subsubsection",
+ CellChangeTimes->{{3.770564252764163*^9, 
+  3.7705642593561897`*^9}},ExpressionUUID->"cd6908cd-ac63-4dd3-a41c-\
+47ed450dc32c"],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+   RowBox[{"bitsToP", "[", "bits_List", "]"}], " ", ":=", " ", 
+   RowBox[{"Module", "[", "\n", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"bList", " ", "=", " ", 
+        RowBox[{"Reverse", "[", "bits", "]"}]}], ",", " ", "i"}], "}"}], ",", 
+     "\n", 
+     RowBox[{"bList", " ", "=", " ", 
+      RowBox[{"bList", " ", ".", " ", 
+       RowBox[{"x", " ", "^", " ", 
+        RowBox[{"Range", "[", 
+         RowBox[{"0", ",", 
+          RowBox[{
+           RowBox[{"Length", "[", "bList", "]"}], "-", "1"}]}], "]"}]}]}]}]}],
+     "\[IndentingNewLine]", "]"}]}], "Code"]], "Input",
+ CellChangeTimes->{{3.7705639908625383`*^9, 3.770564044354745*^9}, {
+  3.770564082679001*^9, 3.7705641904479513`*^9}, {3.770634550594709*^9, 
+  3.770634554188245*^9}, {3.770634609284313*^9, 3.77063466738557*^9}, {
+  3.770634732116891*^9, 3.770634772730022*^9}, {3.770635477479896*^9, 
+  3.770635497536311*^9}},ExpressionUUID->"2a4d0a07-15db-4b58-8fd0-\
+41bc34f642b7"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Polynomial to Bit list", "Subsubsection",
+ CellChangeTimes->{{3.770564264614943*^9, 
+  3.770564269588925*^9}},ExpressionUUID->"cd4f4958-b630-4ac6-be97-\
+9d25fb5d3777"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"pToBits", "[", 
+   RowBox[{"polynomial__", ",", " ", "padding_Integer"}], "]"}], " ", ":=", 
+  " ", 
+  RowBox[{"Module", " ", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"expList", " ", "=", " ", 
+      RowBox[{"Exponent", "[", 
+       RowBox[{"polynomial", ",", "x", ",", "List"}], "]"}]}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{"Reverse", "[", "\[IndentingNewLine]", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"MemberQ", "[", 
+          RowBox[{"expList", ",", "i"}], "]"}], ",", "1", ",", "0"}], "]"}], 
+       ",", " ", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "0", ",", 
+         RowBox[{"padding", "-", "1"}]}], "}"}]}], "]"}], 
+     "\[IndentingNewLine]", "]"}]}], "\[IndentingNewLine]", "]"}]}]], "Input",\
+
+ CellChangeTimes->{{3.770564299142222*^9, 3.7705644287254667`*^9}, {
+  3.770564493038171*^9, 3.770564493264489*^9}, {3.770564582148944*^9, 
+  3.770564583194304*^9}},
+ CellLabel->"In[2]:=",ExpressionUUID->"e61b466e-840f-4fc7-911a-d256814f8a13"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Thread", "[", 
+     RowBox[{
+      RowBox[{"(", 
+       RowBox[{"exps", " ", "+", " ", "1"}], ")"}], "\[Rule]", "1"}], " ", 
+     "]"}], ",", " ", 
+    RowBox[{
+     RowBox[{"Max", "[", "exps", "]"}], " ", "+", "2"}]}], "]"}], 
+  "\[IndentingNewLine]"}]], "Input",ExpressionUUID->"ab27696f-2b16-443c-91bd-\
+0196e878d96b"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["CRC Computation", "Section",
+ CellChangeTimes->{{3.770566864859852*^9, 
+  3.7705668719035788`*^9}},ExpressionUUID->"37a545ac-c40f-49bf-b7ca-\
+fb3578a85f23"],
+
+Cell[CellGroupData[{
+
+Cell["Compute CRC ", "Subsubsection",
+ CellChangeTimes->{{3.770564670562068*^9, 
+  3.770564675496089*^9}},ExpressionUUID->"bf932fba-43c0-4fc7-9865-\
+a652616b034c"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bComputeCRC", "[", 
+   RowBox[{"bits_List", ",", " ", "generator__"}], "]"}], " ", ":=", " ", 
+  RowBox[{"pToBits", "[", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"PolynomialRemainder", "[", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"bitsToP", "[", "bits", "]"}], " ", "*", " ", 
+       SuperscriptBox["x", 
+        RowBox[{"Exponent", "[", 
+         RowBox[{"generator", ",", " ", "x"}], "]"}]]}], ",", " ", 
+      "generator", ",", " ", "x", ",", " ", 
+      RowBox[{"Modulus", "\[Rule]", "2"}]}], "\[IndentingNewLine]", "]"}], 
+    ",", 
+    RowBox[{"Exponent", "[", 
+     RowBox[{"generator", ",", "x"}], "]"}]}], "\[IndentingNewLine]", 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.770564687860877*^9, 3.77056471996929*^9}, {
+  3.770564780138195*^9, 3.770564821423711*^9}, {3.7705648536641693`*^9, 
+  3.770564903481716*^9}, {3.770564953517872*^9, 3.770564957477384*^9}, {
+  3.7705835467121572`*^9, 3.770583558237473*^9}, {3.770584174475539*^9, 
+  3.770584224242714*^9}},
+ CellLabel->"In[52]:=",ExpressionUUID->"eca85d80-34aa-4b6b-a033-ed04ee184dc5"],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.770586350019886*^9, 3.7705863734420652`*^9}, {
+  3.7705864785873327`*^9, 
+  3.770586481047077*^9}},ExpressionUUID->"f39b6d05-ee73-46ed-98fe-\
+3ea503462ab5"],
+
+Cell[BoxData[
+ RowBox[{"(*", " ", 
+  RowBox[{
+   RowBox[{"In", " ", "all", " ", "CRC", " ", "polynomials"}], ",", " ", 
+   RowBox[{
+   "the", " ", "maximums", " ", "exponent", " ", "is", " ", "the", " ", 
+    "number", " ", "of", " ", 
+    RowBox[{"bits", "!"}]}]}], " ", "*)"}]], "Input",
+ CellLabel->"In[51]:=",ExpressionUUID->"60390a52-f2c0-45da-960e-24463037758b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Encode data with CRC", "Subsubsection",
+ CellChangeTimes->{{3.7705663354228354`*^9, 
+  3.770566347876906*^9}},ExpressionUUID->"c9e6a170-ad84-4d83-9bf3-\
+61b3eed5f1ce"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"bEncodeCRC", "[", 
+   RowBox[{"bits_List", ",", " ", "generator__"}], "]"}], ":=", 
+  RowBox[{"Join", "[", 
+   RowBox[{"bits", ",", 
+    RowBox[{"bComputeCRC", "[", 
+     RowBox[{"bits", ",", "generator"}], "]"}]}], "]"}], " "}]], "Input",
+ CellChangeTimes->{{3.770566349935557*^9, 3.770566389064324*^9}, {
+  3.7705666193404837`*^9, 3.7705666627764606`*^9}, {3.7705669096852818`*^9, 
+  3.770566912083549*^9}, {3.770567220206609*^9, 3.770567226931432*^9}, {
+  3.770569077545186*^9, 3.7705690840000677`*^9}, {3.7705692938949223`*^9, 
+  3.7705693893550034`*^9}, {3.77056945486836*^9, 3.7705695002083063`*^9}, {
+  3.770582643043013*^9, 3.770582643193098*^9}, {3.770583572208984*^9, 
+  3.770583611886252*^9}, {3.770584180260614*^9, 
+  3.770584202847865*^9}},ExpressionUUID->"398428a6-3f27-43c2-aa67-\
+59c3cb62678f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Check if there is an error in the message", "Subsubsection",
+ CellChangeTimes->{{3.770583730106883*^9, 
+  3.770583744888112*^9}},ExpressionUUID->"3a647894-2aba-46f1-a7c1-\
+e1a81b71da72"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"bCRCCheckQ", "[", 
+   RowBox[{"bits_List", ",", " ", "generator__"}], "]"}], " ", ":=", 
+  RowBox[{
+   RowBox[{"Total", "[", 
+    RowBox[{"bComputeCRC", "[", 
+     RowBox[{"bits", ",", "generator"}], "]"}], "]"}], " ", "\[Equal]", " ", 
+   "0"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+   "All", " ", "bits", " ", "are", " ", "0", " ", "if", " ", "there", " ", 
+    "is", " ", "no", " ", "error"}], " ", "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.770583747861196*^9, 3.7705839365812397`*^9}, {
+   3.770583981502491*^9, 3.77058398169711*^9}, {3.770584051081748*^9, 
+   3.770584079321842*^9}, 3.770584207701919*^9, {3.770584418637946*^9, 
+   3.770584497114437*^9}, {3.770584527467063*^9, 3.770584547156266*^9}, {
+   3.770584610366209*^9, 3.770584628746323*^9}, {3.7705847031332903`*^9, 
+   3.7705847168156643`*^9}, {3.770584795710507*^9, 3.7705847987886677`*^9}, {
+   3.770584985081738*^9, 
+   3.770585019617955*^9}},ExpressionUUID->"64f6d951-65c3-4414-914e-\
+050b7335f050"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"bComputeCRC", "[", 
+  RowBox[{
+   RowBox[{"ImportString", "[", 
+    RowBox[{"\"\<Hi\>\"", ",", "\"\<Bit\>\""}], "]"}], ",", 
+   RowBox[{
+    RowBox[{"x", "^", "8"}], " ", "+", " ", 
+    RowBox[{"x", "^", "5"}], " ", "+", "1"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.770630905337782*^9, 3.7706309273660097`*^9}, {
+  3.770631475526503*^9, 3.7706315128758802`*^9}},
+ CellLabel->
+  "In[257]:=",ExpressionUUID->"af84b55f-eaa3-42fe-b751-38eec86a5e54"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+  "1", ",", "0", ",", "1", ",", "0", ",", "1", ",", "1", ",", "0", ",", "0"}],
+   "}"}]], "Output",
+ CellChangeTimes->{{3.770630919671791*^9, 3.770630927687552*^9}, {
+   3.7706314955058537`*^9, 3.770631513388462*^9}, 3.770634894533019*^9},
+ CellLabel->
+  "Out[257]=",ExpressionUUID->"a79ed1b1-319e-44da-977e-508b1ea9ca94"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{960, 1023},
+WindowMargins->{{Automatic, 0}, {0, Automatic}},
+FrontEndVersion->"12.0 for Linux x86 (64-bit) (April 11, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[561, 20, 322, 8, 55, "Input",ExpressionUUID->"ed2919b4-b632-408f-8f05-dfd24057c240"],
+Cell[CellGroupData[{
+Cell[908, 32, 165, 3, 68, "Section",ExpressionUUID->"421679c5-99e0-4a9b-becb-fd983e9a678d"],
+Cell[CellGroupData[{
+Cell[1098, 39, 175, 3, 46, "Subsubsection",ExpressionUUID->"cd6908cd-ac63-4dd3-a41c-47ed450dc32c"],
+Cell[1276, 44, 1004, 24, 101, "Input",ExpressionUUID->"2a4d0a07-15db-4b58-8fd0-41bc34f642b7"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2317, 73, 173, 3, 46, "Subsubsection",ExpressionUUID->"cd4f4958-b630-4ac6-be97-9d25fb5d3777"],
+Cell[2493, 78, 1106, 28, 147, "Input",ExpressionUUID->"e61b466e-840f-4fc7-911a-d256814f8a13"],
+Cell[3602, 108, 381, 12, 55, "Input",ExpressionUUID->"ab27696f-2b16-443c-91bd-0196e878d96b"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4032, 126, 162, 3, 68, "Section",ExpressionUUID->"37a545ac-c40f-49bf-b7ca-fb3578a85f23"],
+Cell[CellGroupData[{
+Cell[4219, 133, 163, 3, 46, "Subsubsection",ExpressionUUID->"bf932fba-43c0-4fc7-9865-a652616b034c"],
+Cell[4385, 138, 1120, 24, 132, "Input",ExpressionUUID->"eca85d80-34aa-4b6b-a033-ed04ee184dc5"],
+Cell[5508, 164, 205, 4, 31, "Input",ExpressionUUID->"f39b6d05-ee73-46ed-98fe-3ea503462ab5"],
+Cell[5716, 170, 368, 8, 31, "Input",ExpressionUUID->"60390a52-f2c0-45da-960e-24463037758b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6121, 183, 173, 3, 46, "Subsubsection",ExpressionUUID->"c9e6a170-ad84-4d83-9bf3-61b3eed5f1ce"],
+Cell[6297, 188, 845, 16, 31, "Input",ExpressionUUID->"398428a6-3f27-43c2-aa67-59c3cb62678f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[7179, 209, 192, 3, 46, "Subsubsection",ExpressionUUID->"3a647894-2aba-46f1-a7c1-e1a81b71da72"],
+Cell[7374, 214, 1039, 22, 55, "Input",ExpressionUUID->"64f6d951-65c3-4414-914e-050b7335f050"],
+Cell[CellGroupData[{
+Cell[8438, 240, 472, 11, 31, "Input",ExpressionUUID->"af84b55f-eaa3-42fe-b751-38eec86a5e54"],
+Cell[8913, 253, 362, 8, 35, "Output",ExpressionUUID->"a79ed1b1-319e-44da-977e-508b1ea9ca94"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+

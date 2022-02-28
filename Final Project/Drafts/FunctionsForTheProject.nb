@@ -1,0 +1,60 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='WolframDesktop 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       161,          7]
+NotebookDataLength[      1416,         50]
+NotebookOptionsPosition[      1008,         34]
+NotebookOutlinePosition[      1343,         49]
+CellTagsIndexPosition[      1300,         46]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Functions that will actually be used", "Title",
+ CellChangeTimes->{{3.771430734058835*^9, 3.7714307356116056`*^9}, {
+  3.771430771539053*^9, 
+  3.771430825447933*^9}},ExpressionUUID->"8146534a-60d3-4bf2-a11c-\
+8160b11b3590"],
+
+Cell["Documentation Parsing (DP___)", "Section",
+ CellChangeTimes->{{3.7714308288247213`*^9, 
+  3.771430841969247*^9}},ExpressionUUID->"0862666e-5769-459b-a2d5-\
+3941cf8669a8"]
+}, Open  ]]
+},
+WindowSize->{1920, 1023},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"12.0 for Linux x86 (64-bit) (April 11, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[583, 22, 230, 4, 99, "Title",ExpressionUUID->"8146534a-60d3-4bf2-a11c-8160b11b3590"],
+Cell[816, 28, 176, 3, 68, "Section",ExpressionUUID->"0862666e-5769-459b-a2d5-3941cf8669a8"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)
+

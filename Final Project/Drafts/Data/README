@@ -1,0 +1,10 @@
+BasicExample.mx: 
+    Use it with << "Data/BasicExample.mx" to import the association list of all basic examples.
+JoinedBasicExamples.mx:
+    Use this one! It's the best.
+FunctionList.mx: 
+    List of all function. List with string name.
+BasicExample.dat: 
+    Fallback using string text, annoying to use.
+FunctionList.dat
+    Fallback for the list of all functions.
